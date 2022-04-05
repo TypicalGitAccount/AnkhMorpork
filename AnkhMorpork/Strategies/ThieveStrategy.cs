@@ -7,14 +7,14 @@ namespace Ankh_Morpork.Strategies
     {
         public override InteractionResult Interact(GameTools.User user, GuildCharacterState characterState)
         { 
-            if (user.BalanceCents < characterState.InteractionCostCents)
+            if (user.BalancePennies < characterState.InteractionCostPennies)
                 return InteractionResult.InsufficientBalance;
 
             if ((int)Thieves.AllowedThefts == ThieveState.TheftsHappened)
                 return InteractionResult.TooMuchThefts; 
 
             ThieveState.TheftsHappened += 1;
-            user.BalanceCents -= characterState.InteractionCostCents;
+            user.BalancePennies -= characterState.InteractionCostPennies;
             return InteractionResult.InteractionSuccessful;
         }
     }

@@ -35,7 +35,7 @@ namespace Ankh_Morpork.Events
 
         protected int randomInteractionCost()
         {
-            return rand.Next(1, (int)PredefinedData.User.StartBalanceCents/2);
+            return rand.Next(1, (int)PredefinedData.User.StartBalancePennies/2);
         }
 
         public virtual GuildCharacter GenerateGuildCharacter() { throw new NotImplementedException(); }

@@ -12,7 +12,7 @@ namespace Ankh_Morpork.Tests.States
         [SetUp]
         public void SetUp()
         {
-            state = new BeggarState("TestDummy", BeggarRewardCents.Twitcher.ToString(), (int)BeggarRewardCents.Twitcher);
+            state = new BeggarState("TestDummy", BeggarRewardPennies.Twitcher.ToString(), (int)BeggarRewardPennies.Twitcher);
         }
 
         [TestCase("")]

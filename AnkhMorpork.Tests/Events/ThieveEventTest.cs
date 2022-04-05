@@ -38,7 +38,7 @@ namespace Ankh_Morpork.Tests.Events
             var testThieve = new Thieve("TestDummy");
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testThieve);
 
-            var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(startBalanceCents: 1), inputProcessor, new ConsoleOutputProcessor());
+            var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(startBalancePennies: 1), inputProcessor, new ConsoleOutputProcessor());
 
             Assert.IsFalse(result);
         }

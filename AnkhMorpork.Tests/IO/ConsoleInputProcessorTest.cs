@@ -25,9 +25,9 @@ namespace Ankh_Morpork.Tests.IO
                     int.TryParse((string)val, out int result);
                     return result == 123;
                 })};
-                yield return new List<object> { "      13,5 ", typeof(double), (Func<object, bool>)((val) => { 
-                    double.TryParse((string)val, out double result);
-                    return result > 12.5;
+                yield return new List<object> { "      13,5 ", typeof(decimal), (Func<object, bool>)((val) => { 
+                    decimal.TryParse((string)val, out decimal result);
+                    return result > 12.5m;
                 })};
                 yield return new List<object> { "some     string", typeof(string), null };
                 yield return new List<object> { "  false ", typeof(bool), null };
@@ -54,7 +54,7 @@ namespace Ankh_Morpork.Tests.IO
                     int.TryParse((string)val, out int result);
                     return result > 10;
                 })};
-            yield return new List<object> { "   asd ,     5", typeof(double), null };
+            yield return new List<object> { "   asd ,     5", typeof(decimal), null };
             yield return new List<object> { "     fal       se ", typeof(bool), null };
         }
 

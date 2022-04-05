@@ -20,7 +20,7 @@ namespace Ankh_Morpork.States
             }
         }
 
-        public BeggarState(string name, string practiceName, int rewardCents) : base(name, rewardCents)
+        public BeggarState(string name, string practiceName, int rewardPennies) : base(name, rewardPennies)
         {
             PracticeName = practiceName;
         }

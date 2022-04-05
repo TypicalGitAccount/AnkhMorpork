@@ -27,7 +27,7 @@ namespace Ankh_Morpork.Tests.States
         [Test]
         public void InteractionCost_NegativeValuePassed_ThrowsArgumentOutOfRangeException()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => state.Object.InteractionCostCents = -2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.Object.InteractionCostPennies = -2);
         }
     }
 }

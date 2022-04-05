@@ -12,7 +12,7 @@ namespace Ankh_Morpork.Tests.States
         [SetUp]
         public void SetUp()
         {
-            state = new FoolState("TestDummy", FoolRewardCents.ArchFool.ToString(), (int)FoolRewardCents.ArchFool);
+            state = new FoolState("TestDummy", FoolRewardPennies.ArchFool.ToString(), (int)FoolRewardPennies.ArchFool);
         }
 
         [TestCase("")]

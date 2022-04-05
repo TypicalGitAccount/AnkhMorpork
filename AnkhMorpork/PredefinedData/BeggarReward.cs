@@ -1,6 +1,6 @@
 ﻿namespace Ankh_Morpork.PredefinedData
 {
-    public enum BeggarRewardCents
+    public enum BeggarRewardPennies
     {
         Twitcher = 300,
         Drooler = 200,

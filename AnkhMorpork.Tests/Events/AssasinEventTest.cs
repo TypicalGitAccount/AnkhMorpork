@@ -23,7 +23,7 @@ namespace Ankh_Morpork.Tests.Events
         [Test]
         public void Run_EventAcceptedAndRewardGuessed_ReturnsTrue()
         {
-            var testAssasin = new Assasin(rewardMinCents: 1, rewardMaxCents: 1000, "testDummy", false);
+            var testAssasin = new Assasin(rewardMinPennies: 1, rewardMaxPennies: 1000, "testDummy", false);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput("Yes");
             inputProcessor.AddUserInput("5");
@@ -36,12 +36,12 @@ namespace Ankh_Morpork.Tests.Events
         [Test]
         public void Run_EventAcceptedAndRewardGuessedButNotEnoughMoney_ReturnsFalse()
         {
-            var testAssasin = new Assasin(rewardMinCents: 10, rewardMaxCents: 1000, "testDummy", false);
+            var testAssasin = new Assasin(rewardMinPennies: 10, rewardMaxPennies: 1000, "testDummy", false);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput("Yes");
             inputProcessor.AddUserInput("5");
 
-            var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(startBalanceCents:1), inputProcessor, new ConsoleOutputProcessor());
+            var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(startBalancePennies:1), inputProcessor, new ConsoleOutputProcessor());
 
             Assert.IsFalse(result);
         }
@@ -49,7 +49,7 @@ namespace Ankh_Morpork.Tests.Events
         [Test]
         public void Run_EventAcceptedButAssasinOccupied_ReturnsFalse()
         {
-            var testAssasin = new Assasin(rewardMinCents: 10, rewardMaxCents: 1000, "testDummy", isOccupied: true);
+            var testAssasin = new Assasin(rewardMinPennies: 10, rewardMaxPennies: 1000, "testDummy", isOccupied: true);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput("Yes");
             inputProcessor.AddUserInput("5,02");
@@ -62,7 +62,7 @@ namespace Ankh_Morpork.Tests.Events
         [Test]
         public void Run_EventAcceptedButRewardNotGuessed_ReturnsFalse()
         {
-            var testAssasin = new Assasin(rewardMinCents: 1000, rewardMaxCents: 1000, "testDummy", isOccupied: true);
+            var testAssasin = new Assasin(rewardMinPennies: 1000, rewardMaxPennies: 1000, "testDummy", isOccupied: true);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput(UserOption.Yes.ToString());
             inputProcessor.AddUserInput("5,02");
@@ -75,7 +75,7 @@ namespace Ankh_Morpork.Tests.Events
         [Test]
         public void Run_EventRegected_ReturnsFalse()
         {
-            var testAssasin = new Assasin(rewardMinCents: 10, rewardMaxCents: 1000, "testDummy", isOccupied: true);
+            var testAssasin = new Assasin(rewardMinPennies: 10, rewardMaxPennies: 1000, "testDummy", isOccupied: true);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput(UserOption.No.ToString());
 

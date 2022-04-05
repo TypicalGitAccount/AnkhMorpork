@@ -21,10 +21,10 @@ namespace Ankh_Morpork.Tests.Strategies
             var user = new Ankh_Morpork.GameTools.User();
 
             var result = 
-                strategy.Interact(user, new FoolState("TestDummy", FoolRewardCents.ArchFool.ToString(), (int)FoolRewardCents.ArchFool));
+                strategy.Interact(user, new FoolState("TestDummy", FoolRewardPennies.ArchFool.ToString(), (int)FoolRewardPennies.ArchFool));
 
             Assert.AreEqual(InteractionResult.InteractionSuccessful, result);
-            Assert.AreEqual((int)PredefinedData.User.StartBalanceCents + (int)FoolRewardCents.ArchFool, user.BalanceCents);
+            Assert.AreEqual((int)PredefinedData.User.StartBalancePennies + (int)FoolRewardPennies.ArchFool, user.BalancePennies);
         }
     }
 }

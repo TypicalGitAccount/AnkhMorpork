@@ -4,12 +4,12 @@ namespace Ankh_Morpork.States
 {
     public class AssasinState : GuildCharacterState
     {
-        private int minRewardCents;
-        private int maxRewardCents;
-        public int MinRewardCents {
+        private int minRewardPennies;
+        private int maxRewardPennies;
+        public int MinRewardPennies {
             get 
             {
-                return minRewardCents;
+                return minRewardPennies;
             }
             set 
             {
@@ -18,35 +18,35 @@ namespace Ankh_Morpork.States
                     throw new ArgumentOutOfRangeException("Interaction cost minimum can\'t be <= 0!");
                 }
 
-                minRewardCents = value;
+                minRewardPennies = value;
             } 
         }
 
-        public int MaxRewardCents
+        public int MaxRewardPennies
         {
             get
             {
-                return maxRewardCents;
+                return maxRewardPennies;
             }
             set
             {
-                if (minRewardCents == default(int))
+                if (minRewardPennies == default(int))
                 {
                     throw new ArgumentOutOfRangeException("interactionCostMin must be initialised before interactionCostMax!");
                 }
-                if (minRewardCents > value)
+                if (minRewardPennies > value)
                 {
                     throw new ArgumentOutOfRangeException("Max interaction cost can\'t be < minimum");
                 }
-                maxRewardCents = value;
+                maxRewardPennies = value;
             }
         }
 
         public bool IsOccupied { get; protected set; }
-        public AssasinState(int costMinCents, int costMaxCents, string characterName, bool isOccupied, int interactionCost=0) : base(characterName, interactionCost)
+        public AssasinState(int costMinPennies, int costMaxPennies, string characterName, bool isOccupied, int interactionCost=0) : base(characterName, interactionCost)
         {
-            MinRewardCents = costMinCents;
-            MaxRewardCents = costMaxCents;
+            MinRewardPennies = costMinPennies;
+            MaxRewardPennies = costMaxPennies;
             IsOccupied = isOccupied;
         }
     }

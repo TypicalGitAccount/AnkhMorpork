@@ -22,14 +22,14 @@ namespace Ankh_Morpork.Tests.Strategies
 
             var result = strategy.Interact(user, new ThieveState("TestGuy"));
 
-            Assert.AreEqual((int)PredefinedData.User.StartBalanceCents - (int)Thieves.DefaultFeeCents, user.BalanceCents);
+            Assert.AreEqual((int)PredefinedData.User.StartBalancePennies - (int)Thieves.DefaultFeePennies, user.BalancePennies);
             Assert.AreEqual(InteractionResult.InteractionSuccessful, result);
         }
 
         [Test]
         public void Interact_NotEnughMoney_ReturnsInsufficientBalanceFlag()
         {
-            var result = strategy.Interact(new Ankh_Morpork.GameTools.User(startBalanceCents:0), new ThieveState("TestGuy"));
+            var result = strategy.Interact(new Ankh_Morpork.GameTools.User(startBalancePennies:0), new ThieveState("TestGuy"));
 
             Assert.AreEqual(result, InteractionResult.InsufficientBalance);
         }

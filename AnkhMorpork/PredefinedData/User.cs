@@ -2,6 +2,6 @@
 {
     public enum User
     {
-        StartBalanceCents = 10000
+        StartBalancePennies = 10000
     }
 }

@@ -3,6 +3,6 @@
     public enum Thieves
     {
         AllowedThefts = 6,
-        DefaultFeeCents = 1000
+        DefaultFeePennies = 1000
     }
 }

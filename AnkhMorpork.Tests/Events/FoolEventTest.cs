@@ -21,7 +21,7 @@ namespace Ankh_Morpork.Tests.Events
         [TestCase(UserOption.No)]
         public void Run_UserEntersAnswer_ReturnsTrue(UserOption userInput)
         {
-            var testFool = new Fool("TestDummy", FoolRewardCents.ArchFool.ToString(), (int)FoolRewardCents.ArchFool);
+            var testFool = new Fool("TestDummy", FoolRewardPennies.ArchFool.ToString(), (int)FoolRewardPennies.ArchFool);
             var eventMock = new Mock<FoolEvent>() { CallBase = true };
             eventMock.Setup(x => x.GenerateGuildCharacter()).Returns(testFool);
             inputProcessor.AddUserInput(userInput.ToString());

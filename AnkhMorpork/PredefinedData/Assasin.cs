@@ -1,9 +1,9 @@
 ﻿namespace Ankh_Morpork.PredefinedData
 {
-    public enum AssasinRewardCents
+    public enum AssasinRewardPennies
     {
-        MinRewardCents = 10,
-        MaxRewardCents = User.StartBalanceCents/2
+        MinRewardPennies = 10,
+        MaxRewardPennies = User.StartBalancePennies/2
     }
 
     public enum AssasinGang

@@ -20,13 +20,13 @@ namespace Ankh_Morpork.Tests.Strategies
         {
             var user = new Ankh_Morpork.GameTools.User();
             GuildCharacterState state = new AssasinState(100, 1000, "Givi", false);
-            int guessedRewardCents = 120;
-            state.InteractionCostCents = guessedRewardCents;
+            int guessedRewardPennies = 120;
+            state.InteractionCostPennies = guessedRewardPennies;
 
             InteractionResult result = strategy.Interact(user, state);
 
             Assert.AreEqual(InteractionResult.InteractionSuccessful, result);
-            Assert.AreEqual((int)PredefinedData.User.StartBalanceCents-guessedRewardCents, user.BalanceCents);
+            Assert.AreEqual((int)PredefinedData.User.StartBalancePennies-guessedRewardPennies, user.BalancePennies);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace Ankh_Morpork.Tests.Strategies
         public void Interact_AssasinIsOccupied_ReturnsAssasinIsOccupiedFlag()
         {
             GuildCharacterState state = new AssasinState(10, 1000, "Givi", true);
-            state.InteractionCostCents = 100;
+            state.InteractionCostPennies = 100;
             InteractionResult result = strategy.Interact(new Ankh_Morpork.GameTools.User(), state);
 
             Assert.AreEqual(InteractionResult.AssasinIsOccupied, result);
@@ -59,7 +59,7 @@ namespace Ankh_Morpork.Tests.Strategies
         public void Interact_WrongRewardGuessed_ReturnsRewardNotGuessedFlag()
         {
             GuildCharacterState state = new AssasinState(450, 500, "Givi", false);
-            state.InteractionCostCents = 150;
+            state.InteractionCostPennies = 150;
             InteractionResult result = strategy.Interact(new Ankh_Morpork.GameTools.User(), state);
 
             Assert.AreEqual(InteractionResult.RewardNotGuessed, result);

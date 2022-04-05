@@ -11,20 +11,20 @@ namespace Ankh_Morpork.Strategies
             if (characterState is not AssasinState)
                 return InteractionResult.InteractionNotImplemented;
 
-            if (characterState.InteractionCostCents > user.BalanceCents)
+            if (characterState.InteractionCostPennies > user.BalancePennies)
                 return InteractionResult.InsufficientBalance;
 
             var state = (AssasinState)characterState;
-            if (state.InteractionCostCents == 0)
+            if (state.InteractionCostPennies == 0)
                 return InteractionResult.InteractionCostNotAssigned;
 
             if (state.IsOccupied)
                 return InteractionResult.AssasinIsOccupied;
 
-            if (state.MinRewardCents > state.InteractionCostCents || state.MaxRewardCents < state.InteractionCostCents)
+            if (state.MinRewardPennies > state.InteractionCostPennies || state.MaxRewardPennies < state.InteractionCostPennies)
                 return InteractionResult.RewardNotGuessed;
 
-            user.BalanceCents -= state.InteractionCostCents;
+            user.BalancePennies -= state.InteractionCostPennies;
             return InteractionResult.InteractionSuccessful;
         }
 

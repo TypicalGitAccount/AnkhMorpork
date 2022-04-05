@@ -21,17 +21,17 @@ namespace Ankh_Morpork.Tests.Strategies
             var user = new Ankh_Morpork.GameTools.User();
             var result = 
                 strategy.Interact(user, new BeggarState("TestDummy", 
-                BeggarRewardCents.Twitcher.ToString(), (int)BeggarRewardCents.Twitcher));
+                BeggarRewardPennies.Twitcher.ToString(), (int)BeggarRewardPennies.Twitcher));
 
             Assert.AreEqual(result, InteractionResult.InteractionSuccessful);
-            Assert.AreEqual((int)PredefinedData.User.StartBalanceCents - (int)BeggarRewardCents.Twitcher, user.BalanceCents);
+            Assert.AreEqual((int)PredefinedData.User.StartBalancePennies - (int)BeggarRewardPennies.Twitcher, user.BalancePennies);
         }
 
         public void Interact_NotEnoughMoney_ReturnsInsufficientBalanceFlag()
         {
             var result =
-                strategy.Interact(new Ankh_Morpork.GameTools.User(startBalanceCents: 0), new BeggarState("TestDummy", 
-                BeggarRewardCents.Twitcher.ToString(), (int)BeggarRewardCents.Twitcher));
+                strategy.Interact(new Ankh_Morpork.GameTools.User(startBalancePennies: 0), new BeggarState("TestDummy", 
+                BeggarRewardPennies.Twitcher.ToString(), (int)BeggarRewardPennies.Twitcher));
 
             Assert.AreEqual(result, InteractionResult.InsufficientBalance);
         }

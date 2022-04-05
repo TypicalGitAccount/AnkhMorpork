@@ -21,26 +21,26 @@ namespace Ankh_Morpork.States
                 characterName = value;
             }
         }
-        private int interactionCostCents;
-        public int InteractionCostCents
+        private int interactionCostPennies;
+        public int InteractionCostPennies
         {
             get
             {
-                return interactionCostCents;
+                return interactionCostPennies;
             }
             set
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Interaction cost can\'t be < 0!");
 
-                interactionCostCents = value;
+                interactionCostPennies = value;
             }
         }
 
-        public GuildCharacterState(string name, int costCents=0)
+        public GuildCharacterState(string name, int costPennies=0)
         {
             CharacterName = name;
-            InteractionCostCents = costCents;
+            InteractionCostPennies = costPennies;
         }
     }
 }

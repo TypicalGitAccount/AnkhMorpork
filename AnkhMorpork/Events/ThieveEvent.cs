@@ -15,10 +15,10 @@ namespace Ankh_Morpork.Events
         public override bool Run(GameTools.User user, InputProcessor inputProcessor, OutputProcessor outputProcessor)
         {
             var thieve = GenerateGuildCharacter();
-            outputProcessor.Output($"Pocket: {CurrencyConverter.CentsToDollars(user.BalanceCents)} $\n\n"
+            outputProcessor.Output($"Pocket: {CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n"
                 + $"There's a thieve {thieve.State.CharacterName} on the way\n" +
                 "and your back is against the wall!\n" +
-            $"Thieve's demand is {CurrencyConverter.CentsToDollars(thieve.State.InteractionCostCents)} $\n" + 
+            $"Thieve's demand is {CurrencyConverter.PenniesToString(thieve.State.InteractionCostPennies)} $\n" + 
             "Your only way to survive is to pay off...\n" +
             "Give the money? (Enter 'Yes' or 'No')\n\n");
             var answ = GetUsersAnswer(inputProcessor, outputProcessor);

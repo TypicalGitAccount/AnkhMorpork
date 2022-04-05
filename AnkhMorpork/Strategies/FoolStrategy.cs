@@ -7,7 +7,7 @@ namespace Ankh_Morpork.Strategies
     {
         public override InteractionResult Interact(GameTools.User user, GuildCharacterState characterState)
         {
-            user.BalanceCents += characterState.InteractionCostCents;
+            user.BalancePennies += characterState.InteractionCostPennies;
             return InteractionResult.InteractionSuccessful;
         }
     }

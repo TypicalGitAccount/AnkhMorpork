@@ -9,21 +9,21 @@ namespace Ankh_Morpork.Events
 {
     public class AssasinEvent : GuildCharacterEvent
     {
-        protected int randomMinRewardCents()
+        protected int randomMinRewardPennies()
         {
-            return rand.Next((int)AssasinRewardCents.MinRewardCents, (int)AssasinRewardCents.MaxRewardCents);
+            return rand.Next((int)AssasinRewardPennies.MinRewardPennies, (int)AssasinRewardPennies.MaxRewardPennies);
         }
 
-        protected int randomMaxRewardCents(int minRewardCents)
+        protected int randomMaxRewardPennies(int minRewardPennies)
         {
-            return rand.Next(minRewardCents, (int)AssasinRewardCents.MaxRewardCents);
+            return rand.Next(minRewardPennies, (int)AssasinRewardPennies.MaxRewardPennies);
         }
 
         public override GuildCharacter GenerateGuildCharacter()
         {
             var random = new Random();
-            var rewardMin = randomMinRewardCents();
-            var rewardMax = randomMaxRewardCents(rewardMin);
+            var rewardMin = randomMinRewardPennies();
+            var rewardMax = randomMaxRewardPennies(rewardMin);
             var name = randomName();
             var isOccupied = random.Next(2) == 1;
             return new Assasin(rewardMin, rewardMax, name, isOccupied);
@@ -41,14 +41,14 @@ namespace Ankh_Morpork.Events
 
         internal bool ValidRewardInput(InputProcessor inputProcessor, string input)
         {
-            return inputProcessor.ValidInput(input, typeof(double), (val) =>
+            return inputProcessor.ValidInput(input, typeof(decimal), (val) =>
             {
-                double.TryParse((string)val, out double value);
+                decimal.TryParse((string)val, out decimal value);
                 return value > 0;
             });
         }
 
-        internal double GetGuesssedRewardDollars(InputProcessor inputProcessor, OutputProcessor outputProcessor)
+        internal decimal GetGuesssedRewardDollars(InputProcessor inputProcessor, OutputProcessor outputProcessor)
         {
             var inputAccepted = false;
             var input = inputProcessor.GetInput();
@@ -56,7 +56,7 @@ namespace Ankh_Morpork.Events
             {
                 if (!ValidRewardInput(inputProcessor, input))
                 {
-                    outputProcessor.Output("\nWrong input, please enter your reward (positiver number)!\n");
+                    outputProcessor.Output("\nWrong input, please enter your reward (positive number)!\n");
                     input = inputProcessor.GetInput();
                 }
                 else
@@ -65,13 +65,13 @@ namespace Ankh_Morpork.Events
                 }
             }
 
-            double.TryParse(input, out double result);
+            decimal.TryParse(input, out decimal result);
             return result;
         } 
 
         public override bool Run(GameTools.User user, InputProcessor inputProcessor, OutputProcessor outputProcessor)
         {
-            outputProcessor.Output($"Pocket: {CurrencyConverter.CentsToDollars(user.BalanceCents)}$\n\n");
+            outputProcessor.Output($"Pocket: {CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n");
             var assasinGang = GenerateAssasinsGang();
             outputProcessor.Output($"You bumped into a gang of Assasins! They say : \n" +
                 "'Someone set a contract to kill you. But we can have a deal.\n" +
@@ -82,11 +82,11 @@ namespace Ankh_Morpork.Events
             if (answ == UserOption.Yes)
             {
                 outputProcessor.Output("\nSay your reward!(You have only 1 try to guess)\n");
-                var guessedRewardCents = CurrencyConverter.DollarsToCents(GetGuesssedRewardDollars(inputProcessor, outputProcessor));
+                var guessedRewardPennies = CurrencyConverter.DollarsToPennies(GetGuesssedRewardDollars(inputProcessor, outputProcessor));
                 
                 foreach (var assasin in assasinGang)
                 {
-                    assasin.State.InteractionCostCents = guessedRewardCents;
+                    assasin.State.InteractionCostPennies = guessedRewardPennies;
                     if (assasin.Interact(user) == InteractionResult.InteractionSuccessful)
                     {
                         outputProcessor.Output($"You were lucky - assasins took the bribe\n" +

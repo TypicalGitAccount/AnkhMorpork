@@ -16,11 +16,11 @@ namespace Ankh_Morpork.Tests.GameTools
         }
 
         [Test]
-        public void BalanceCents_NegativeValuePassed_ThrowsArgumentOutOfRangeException()
+        public void BalancePennies_NegativeValuePassed_ThrowsArgumentOutOfRangeException()
         {
             var user = new User();
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => user.BalanceCents = -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => user.BalancePennies = -1);
         }
     }
 }

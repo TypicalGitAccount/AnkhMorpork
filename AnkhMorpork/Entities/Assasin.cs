@@ -5,7 +5,7 @@ namespace Ankh_Morpork.Entities
 {
     public class Assasin : GuildCharacter
     {
-        public Assasin(int rewardMinCents, int rewardMaxCents, string characterName, bool isOccupied, int interactionCost=0)
-            : base(new AssasinState(rewardMinCents, rewardMaxCents, characterName, isOccupied, interactionCost), new AssasinStrategy()) { }
+        public Assasin(int rewardMinPennies, int rewardMaxPennies, string characterName, bool isOccupied, int interactionCostPennies=0)
+            : base(new AssasinState(rewardMinPennies, rewardMaxPennies, characterName, isOccupied, interactionCostPennies), new AssasinStrategy()) { }
     }
 }

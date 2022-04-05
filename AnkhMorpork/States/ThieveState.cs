@@ -20,6 +20,6 @@ namespace Ankh_Morpork.States
                 theftsCounter = value;
             }
         }
-        public ThieveState(string name) : base(name, (int)Thieves.DefaultFeeCents) { }
+        public ThieveState(string name) : base(name, (int)Thieves.DefaultFeePennies) { }
     }
 }

@@ -16,22 +16,22 @@ namespace Ankh_Morpork.Tests.States
 
         [TestCase(-2)]
         [TestCase(0)]
-        public void MinRewardCents_InvalidValuePassed_ThrowsArgumentOutOfRangeException(int reward)
+        public void MinRewardPennies_InvalidValuePassed_ThrowsArgumentOutOfRangeException(int reward)
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => state.MinRewardCents = reward);
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.MinRewardPennies = reward);
         }
 
         [Test]
-        public void MaxRewardCents_ValueLessThanMinRewardPassed_ThrowsArgumentOutOfRangeException()
+        public void MaxRewardPennies_ValueLessThanMinRewardPassed_ThrowsArgumentOutOfRangeException()
         {
-            state.MinRewardCents = 20;
-            Assert.Throws<ArgumentOutOfRangeException>(() => state.MaxRewardCents = 5);
+            state.MinRewardPennies = 20;
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.MaxRewardPennies = 5);
         }
 
         [Test]
-        public void MaxRewardCents_MinRewardNotInitialisedBeforeMaxReward_ThrowsArgumentOutOfRangeException()
+        public void MaxRewardPennies_MinRewardNotInitialisedBeforeMaxReward_ThrowsArgumentOutOfRangeException()
         { 
-            Assert.Throws<ArgumentOutOfRangeException>(() => state.MaxRewardCents = 5);
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.MaxRewardPennies = 5);
         }
     }
 }

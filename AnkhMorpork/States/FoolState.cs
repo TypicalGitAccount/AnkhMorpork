@@ -19,7 +19,7 @@ namespace Ankh_Morpork.States
                 practiceName = value;
             }
         }
-        public FoolState(string name, string practiceName, int rewardCents) : base(name, rewardCents) 
+        public FoolState(string name, string practiceName, int rewardPennies) : base(name, rewardPennies) 
         {
             PracticeName = practiceName;
         }

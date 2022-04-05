@@ -5,7 +5,7 @@ namespace Ankh_Morpork.Entities
 {
     public class Fool : GuildCharacter
     {
-        public Fool(string name, string practiceName, int rewardCents) :
-            base(new FoolState(name, practiceName, rewardCents), new FoolStrategy()) {}
+        public Fool(string name, string practiceName, int rewardPennies) :
+            base(new FoolState(name, practiceName, rewardPennies), new FoolStrategy()) {}
     }
 }

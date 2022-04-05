@@ -19,26 +19,26 @@ namespace Ankh_Morpork.GameTools
                 moves = value;
             }
         }
-        private int balanceCents;
-        public int BalanceCents
+        private int balancePennies;
+        public int BalancePennies
         {
             get
             { 
-                return balanceCents;
+                return balancePennies;
             }
             set
             {
                 if (value < 0f)
                     throw new ArgumentOutOfRangeException("Balance can\'t be < 0!");
 
-                balanceCents = value;
+                balancePennies = value;
             }
         }
 
-        public User(int startBalanceCents = (int)PredefinedData.User.StartBalanceCents)
+        public User(int startBalancePennies = (int)PredefinedData.User.StartBalancePennies)
         {
             Moves = 0;
-            BalanceCents = startBalanceCents;
+            BalancePennies = startBalancePennies;
         }
     }
 }

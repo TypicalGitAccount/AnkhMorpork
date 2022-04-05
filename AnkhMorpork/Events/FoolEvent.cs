@@ -9,10 +9,10 @@ namespace Ankh_Morpork.Events
 {
     public class FoolEvent : GuildCharacterEvent
     {
-        protected FoolRewardCents randomPractice()
+        protected FoolRewardPennies randomPractice()
         {
-            Array values = Enum.GetValues(typeof(FoolRewardCents));
-            return (FoolRewardCents)values.GetValue(rand.Next(values.Length));
+            Array values = Enum.GetValues(typeof(FoolRewardPennies));
+            return (FoolRewardPennies)values.GetValue(rand.Next(values.Length));
         }
 
         public override GuildCharacter GenerateGuildCharacter()
@@ -28,10 +28,10 @@ namespace Ankh_Morpork.Events
         {
             var fool = GenerateGuildCharacter();
             var practiceName = ((FoolState)fool.State).PracticeName;
-            var reward = CurrencyConverter.CentsToDollars(fool.State.InteractionCostCents);
-            outputProcessor.Output($"Pocket: { CurrencyConverter.CentsToDollars(user.BalanceCents)}$\n\n" +
+            var rewardPennies = fool.State.InteractionCostPennies;
+            outputProcessor.Output($"Pocket: { CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n" +
                 $"You met your highschool homie, {fool.State.CharacterName} ({practiceName})\n" +
-                $"He offers you to join him and earn some money ({reward} $)\n" + 
+                $"He offers you to join him and earn some money ( {CurrencyConverter.PenniesToString(rewardPennies)} )\n" + 
                 "Wanna join him? (Enter 'Yes' or 'No')\n\n");
             var answ = GetUsersAnswer(inputProcessor, outputProcessor);
             if (answ == UserOption.Yes)
