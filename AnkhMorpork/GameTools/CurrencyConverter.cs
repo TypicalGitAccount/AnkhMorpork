@@ -26,7 +26,7 @@ namespace Ankh_Morpork.GameTools
                 return $"{dollars} $";
 
             var pennies = dollars % 1;
-            var afterZero = (pennies).ToString().Split(',')[1].Length;
+            var afterZero = (pennies).ToString().Split('.')[1].Length;
             for (int i = 0; i < afterZero; i++)
                 pennies *= 10;
 

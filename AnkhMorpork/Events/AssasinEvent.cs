@@ -43,6 +43,8 @@ namespace Ankh_Morpork.Events
         {
             return inputProcessor.ValidInput(input, typeof(decimal), (val) =>
             {
+                if (input.Contains(','))
+                    return false;
                 decimal.TryParse((string)val, out decimal value);
                 return value > 0;
             });
@@ -64,7 +66,6 @@ namespace Ankh_Morpork.Events
                     inputAccepted = true;
                 }
             }
-
             decimal.TryParse(input, out decimal result);
             return result;
         } 
