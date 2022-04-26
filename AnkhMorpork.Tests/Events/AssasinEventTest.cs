@@ -6,6 +6,7 @@ using Moq;
 using NUnit.Framework;
 using Ankh_Morpork.GameTools;
 
+
 namespace Ankh_Morpork.Tests.Events
 {
     public class AssasinEventTest

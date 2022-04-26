@@ -9,6 +9,7 @@ namespace Ankh_Morpork.Events
 {
     public class AssasinEvent : GuildCharacterEvent
     {
+
         protected int randomMinRewardPennies()
         {
             return rand.Next((int)AssasinRewardPennies.MinRewardPennies, (int)AssasinRewardPennies.MaxRewardPennies);
@@ -46,6 +47,7 @@ namespace Ankh_Morpork.Events
                 if (input.Contains(','))
                     return false;
                 decimal.TryParse((string)val, out decimal value);
+
                 return value > 0;
             });
         }

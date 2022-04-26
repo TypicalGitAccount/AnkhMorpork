@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssasinEventFail" xml:space="preserve">
+    <value>
+The gang beated you to death with tea bags...
+</value>
+  </data>
+  <data name="AssasinEventRewardGuessedWrong" xml:space="preserve">
+    <value>
+Unfriendly people didn't like the reward you offered
+</value>
+  </data>
+  <data name="AssasinEventRewardGuessWelcome" xml:space="preserve">
+    <value>
+Say your reward!(You have only 1 try to guess)
+</value>
+  </data>
+  <data name="AssasinEventSuccess" xml:space="preserve">
+    <value>
+You were lucky - assasins took the bribe
+and disappeared in the dark.
+</value>
+  </data>
+  <data name="AssasinEventWelcome" xml:space="preserve">
+    <value>
+You bumped into a gang of Assasins! They say 
+someone set a contract to kill you. But we can have a deal
+Show us your pocket, and if someone likes it's content and 
+has a free time to help you eliminate your assination orderer, we're good.
+Accept the offer? (Enter 'Yes' or 'No')
+</value>
+  </data>
+  <data name="AssasinEventWrongReward" xml:space="preserve">
+    <value>
+Wrong input, please enter your reward (positive number)!
+</value>
+    <comment>Displayed when user puts incorrect input while guessing the reward</comment>
+  </data>
+  <data name="BeggarEventFail" xml:space="preserve">
+    <value>
+{0} saw you're short on money.
+</value>
+  </data>
+  <data name="BeggarEventNotEnoughMoney" xml:space="preserve">
+    <value>
+Beggar and his mates chased you on your way until you found your death...
+</value>
+  </data>
+  <data name="BeggarEventSuccess" xml:space="preserve">
+    <value>
+{0} got his coins and went away.
+</value>
+  </data>
+  <data name="BeggarEventWelcome" xml:space="preserve">
+    <value>
+A random beggar named {0} ({1})
+has been disturbing you for more than an hour already.
+It looks like if you don't give him alms ( {2} ),
+he will chase you to death
+Give alms to {3}? (Enter 'Yes' or 'No')
+</value>
+  </data>
+  <data name="FoolEventFail" xml:space="preserve">
+    <value>
+{0} said that it will be sad for him
+to joke around alone today and left.
+</value>
+  </data>
+  <data name="FoolEventSuccess" xml:space="preserve">
+    <value>
+You had a great time fooling around and earn some money!
+</value>
+  </data>
+  <data name="FoolEventWelcome" xml:space="preserve">
+    <value>
+You met your highschool homie, {0} ({1})
+He offers you to join him and earn some money ( {2} ) 
+Wanna join him? (Enter 'Yes' or 'No')
+</value>
+  </data>
+  <data name="ThieveEventFail" xml:space="preserve">
+    <value>
+You were killed by {0}
+</value>
+  </data>
+  <data name="ThieveEventNotEnoughMoney" xml:space="preserve">
+    <value>
+There was not enough money to save your life..
+</value>
+  </data>
+  <data name="ThieveEventSuccess" xml:space="preserve">
+    <value>
+Thieve {0} spared your life today.
+</value>
+  </data>
+  <data name="ThieveEventWelcome" xml:space="preserve">
+    <value>
+There's a thieve {0} on the way
+and your back is against the wall
+Thieve's demand is {1}
+Your only way to survive is to pay off...
+Give the money? (Enter 'Yes' or 'No')
+</value>
+  </data>
+  <data name="UserBalanceOutput" xml:space="preserve">
+    <value>
+Pocket {0}:
+</value>
+  </data>
+  <data name="UserInputNotValid" xml:space="preserve">
+    <value>
+Input is not valid, please anter '{0}' or '{1}'!
+</value>
+  </data>
+</root>
