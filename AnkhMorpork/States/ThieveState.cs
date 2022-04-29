@@ -6,6 +6,7 @@ namespace Ankh_Morpork.States
     public class ThieveState : GuildCharacterState
     {
         private static int theftsCounter = 0;
+
         public static int TheftsHappened
         {
             get

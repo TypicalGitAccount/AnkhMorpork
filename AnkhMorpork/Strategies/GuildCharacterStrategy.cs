@@ -11,6 +11,12 @@ namespace Ankh_Morpork.Strategies
             return user == null || characterState == null;
         }
 
+        /// <summary>
+        /// To apply npc strategy to user
+        /// </summary>
+        /// <param name="characterState">Npc which strategy is used</param>
+        /// <returns>InteractionResult</returns>
+        /// <exception cref="NotImplementedException"></exception>
         public virtual InteractionResult Interact(GameTools.User user, GuildCharacterState characterState) 
         { throw new NotImplementedException(); }
     }

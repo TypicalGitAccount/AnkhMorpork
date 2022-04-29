@@ -36,7 +36,9 @@ namespace Ankh_Morpork.States
                 interactionCostPennies = value;
             }
         }
-
+        /// <summary>
+        /// Base npc state
+        /// </summary>
         public GuildCharacterState(string name, int costPennies=0)
         {
             CharacterName = name;

@@ -2,6 +2,9 @@
 
 namespace Ankh_Morpork.GameTools
 {
+    /// <summary>
+    /// Converts game pennies to dollars and vice versa
+    /// </summary>
     public static class CurrencyConverter
     {
         public static decimal PenniesToDollars(int cents)
