@@ -38,6 +38,10 @@ namespace Ankh_Morpork.Events
             return rand.Next(1, (int)PredefinedData.User.StartBalancePennies/2);
         }
 
+        /// <summary>
+        /// To generate npc according to event type
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public virtual GuildCharacter GenerateGuildCharacter() { throw new NotImplementedException(); }
 
         internal bool ValidUserAnswer(InputProcessor inputProcessor, string input)
@@ -74,6 +78,11 @@ namespace Ankh_Morpork.Events
             return UserOption.No;
         }
 
+
+        /// <summary>
+        /// Event entry point
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public virtual bool Run(GameTools.User user, InputProcessor inputProcessor, OutputProcessor outputProcessor)
         { throw new NotImplementedException(); } 
     }
