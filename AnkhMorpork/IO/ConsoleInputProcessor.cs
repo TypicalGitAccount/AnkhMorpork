@@ -3,14 +3,8 @@ using System.Text.RegularExpressions;
 
 namespace Ankh_Morpork.IO
 {
-    /// <summary>
-    /// Recieve and validate user input from console
-    /// </summary>
     public class ConsoleInputProcessor : InputProcessor
     {
-        /// <summary>
-        /// Try to parse given type from string input
-        /// </summary>
         internal bool Is(Type typeToValidate, string input)
         {
             if (typeToValidate == typeof(string))
@@ -27,9 +21,7 @@ namespace Ankh_Morpork.IO
 
             return (bool)method.Invoke(null, new object[] { input, temp });
         }
-        /// <summary>
-        /// To get and validate user input from string
-        /// </summary>
+
         public override bool ValidInput(string input, Type typeToValidate, Func<object, bool> check = null)
         {
             if (check == null)

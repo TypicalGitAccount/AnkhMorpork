@@ -8,13 +8,7 @@ using System.Reflection;
 
 namespace Ankh_Morpork.GameTools
 {
-    /// <summary>
-    /// Console game entry point
-    /// </summary>
     public class GameController {
-        /// <summary>
-        /// List of all possible game event types
-        /// </summary>
         public List<Type> GameEvents { get; private set; }
         public User User { get; private set; }
         public InputProcessor InputProcessor { get; private set; }

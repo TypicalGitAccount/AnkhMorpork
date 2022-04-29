@@ -1,8 +1,5 @@
 ﻿namespace Ankh_Morpork.PredefinedData
 {
-    /// <summary>
-    /// Fools reward according to practice
-    /// </summary>
     public enum FoolRewardPennies
     {
         Muggin = 50,
