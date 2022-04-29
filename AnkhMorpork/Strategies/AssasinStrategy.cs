@@ -8,9 +8,6 @@ namespace Ankh_Morpork.Strategies
     { 
         public override InteractionResult Interact(GameTools.User user, GuildCharacterState characterState) 
         {
-            if (AreNull(user, characterState))
-                throw new ArgumentException("Arguments can't be null");
-
             if (characterState is not AssasinState)
                 return InteractionResult.InteractionNotImplemented;
 

@@ -29,20 +29,20 @@ namespace Ankh_Morpork.Events
             var fool = GenerateGuildCharacter();
             var practiceName = ((FoolState)fool.State).PracticeName;
             var rewardPennies = fool.State.InteractionCostPennies;
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("UserBalanceOutput"),
-                CurrencyConverter.PenniesToString(user.BalancePennies)));
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("FoolEventWelcome"),
-                fool.State.CharacterName, practiceName, CurrencyConverter.PenniesToString(rewardPennies)));
+            outputProcessor.Output($"Pocket: { CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n" +
+                $"You met your highschool homie, {fool.State.CharacterName} ({practiceName})\n" +
+                $"He offers you to join him and earn some money ( {CurrencyConverter.PenniesToString(rewardPennies)} )\n" + 
+                "Wanna join him? (Enter 'Yes' or 'No')\n\n");
             var answ = GetUsersAnswer(inputProcessor, outputProcessor);
             if (answ == UserOption.Yes)
             {
                 fool.Interact(user);
-                outputProcessor.Output(Resources.Events.ResourceManager.GetString("FoolEventSuccess"));
+                outputProcessor.Output("You had a great time fooling around and earn some money!\n\n");
             }
             else
             {
-                outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("FoolEventFail"),
-                    fool.State.CharacterName));
+                outputProcessor.Output($"{fool.State.CharacterName} said that it will be sad for him\n" +
+                "to joke around alone today and left.\n\n");
             }
             return true;
         }

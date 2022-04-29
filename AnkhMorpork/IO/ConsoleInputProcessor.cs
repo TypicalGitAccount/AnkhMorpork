@@ -3,19 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace Ankh_Morpork.IO
 {
-    /// <summary>
-    /// Recieve and validate user input from console
-    /// </summary>
     public class ConsoleInputProcessor : InputProcessor
     {
-        /// <summary>
-        /// Try to parse given type from string input
-        /// </summary>
         internal bool Is(Type typeToValidate, string input)
         {
-            if (string.IsNullOrEmpty(input))
-                return false;
-
             if (typeToValidate == typeof(string))
                 return true;
             
@@ -24,15 +15,13 @@ namespace Ankh_Morpork.IO
                 new[] 
                 {
                     typeof (string),
-                    Type.GetType($"{typeToValidate.FullName}&")
+                    Type.GetType(string.Format("{0}&", typeToValidate.FullName))
                 }
             );
 
             return (bool)method.Invoke(null, new object[] { input, temp });
         }
-        /// <summary>
-        /// To get and validate user input from string
-        /// </summary>
+
         public override bool ValidInput(string input, Type typeToValidate, Func<object, bool> check = null)
         {
             if (check == null)

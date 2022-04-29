@@ -8,13 +8,7 @@ using System.Reflection;
 
 namespace Ankh_Morpork.GameTools
 {
-    /// <summary>
-    /// Console game entry point
-    /// </summary>
     public class GameController {
-        /// <summary>
-        /// List of all possible game event types
-        /// </summary>
         public List<Type> GameEvents { get; private set; }
         public User User { get; private set; }
         public InputProcessor InputProcessor { get; private set; }
@@ -39,12 +33,12 @@ namespace Ankh_Morpork.GameTools
 
         private void WelcomeWord()
         {
-            OutputProcessor.Output(Resources.GameController.ResourceManager.GetString("WelcomeWord"));
+            OutputProcessor.Output("\nWelcome to the world of Ankh-Morpork!\n\n");
         }
 
         private void EndWord()
         {
-            OutputProcessor.Output(string.Format(Resources.GameController.ResourceManager.GetString("FinalWord") , User.Moves));
+            OutputProcessor.Output($"\nGame over!\nYour score - {User.Moves} moves\n");
         }
 
         public void StartGame() {

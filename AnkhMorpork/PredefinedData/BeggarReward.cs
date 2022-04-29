@@ -1,8 +1,5 @@
 ﻿namespace Ankh_Morpork.PredefinedData
 {
-    /// <summary>
-    /// Beggars reward accprding to practice
-    /// </summary>
     public enum BeggarRewardPennies
     {
         Twitcher = 300,

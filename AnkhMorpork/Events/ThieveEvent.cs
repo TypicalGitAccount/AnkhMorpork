@@ -15,23 +15,23 @@ namespace Ankh_Morpork.Events
         public override bool Run(GameTools.User user, InputProcessor inputProcessor, OutputProcessor outputProcessor)
         {
             var thieve = GenerateGuildCharacter();
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("UserBalanceOutput"),
-                CurrencyConverter.PenniesToString(user.BalancePennies)));
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("ThieveEventWelcome"),
-                thieve.State.CharacterName, CurrencyConverter.PenniesToString(thieve.State.InteractionCostPennies)));
+            outputProcessor.Output($"Pocket: {CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n"
+                + $"There's a thieve {thieve.State.CharacterName} on the way\n" +
+                "and your back is against the wall!\n" +
+            $"Thieve's demand is {CurrencyConverter.PenniesToString(thieve.State.InteractionCostPennies)} $\n" + 
+            "Your only way to survive is to pay off...\n" +
+            "Give the money? (Enter 'Yes' or 'No')\n\n");
             var answ = GetUsersAnswer(inputProcessor, outputProcessor);
             if (answ == UserOption.Yes)
             {
                 if (thieve.Interact(user) == InteractionResult.InteractionSuccessful)
                 {
-                    outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("ThieveEventSuccess"),
-                thieve.State.CharacterName));
+                    outputProcessor.Output($"Thieve {thieve.State.CharacterName} spared your life today.\n");
                     return true;
                 }
-                outputProcessor.Output(Resources.Events.ResourceManager.GetString("ThieveEventNotEnoughMoney"));
+                outputProcessor.Output($"There was not enough money to save your life..\n");
             }
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("ThieveEventFail"),
-                thieve.State.CharacterName));
+            outputProcessor.Output($"You were killed by {thieve.State.CharacterName}\n\n");
             return false;
         }
     }

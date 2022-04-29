@@ -2,9 +2,6 @@
 
 namespace Ankh_Morpork.GameTools
 {
-    /// <summary>
-    /// User data tracking unit
-    /// </summary>
     public class User
     {
         private int moves;

@@ -2,9 +2,6 @@
 
 namespace Ankh_Morpork.GameTools
 {
-    /// <summary>
-    /// Converts game pennies to dollars and vice versa
-    /// </summary>
     public static class CurrencyConverter
     {
         public static decimal PenniesToDollars(int cents)
@@ -28,7 +25,10 @@ namespace Ankh_Morpork.GameTools
             if (dollars % 1 == 0)
                 return $"{dollars} $";
 
-            var pennies = dollars % 1 * 100;
+            var pennies = dollars % 1;
+            var afterZero = (pennies).ToString().Split('.')[1].Length;
+            for (int i = 0; i < afterZero; i++)
+                pennies *= 10;
 
             return $"{Math.Truncate(dollars)} $ {(int)pennies} p.";
         }

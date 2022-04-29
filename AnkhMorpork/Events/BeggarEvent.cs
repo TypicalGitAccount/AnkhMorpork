@@ -29,27 +29,24 @@ namespace Ankh_Morpork.Events
             var beggar = GenerateGuildCharacter();
             var interactionCostPennies = beggar.State.InteractionCostPennies;
             var practiceName = ((BeggarState)beggar.State).PracticeName;
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("UserBalanceOutput"),
-                CurrencyConverter.PenniesToString(user.BalancePennies)));
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("BeggarEventWelcome"),
-                beggar.State.CharacterName, practiceName, CurrencyConverter.PenniesToString(interactionCostPennies),
-                beggar.State.CharacterName));
-
+            outputProcessor.Output($"Pocket: { CurrencyConverter.PenniesToString(user.BalancePennies)}\n\n"  +
+                $"A random beggar named {beggar.State.CharacterName} ({practiceName})\n" +
+                "has been disturbing you for more than an hour already.\n" +
+                $"It looks like if you don\'t give him alms ( {CurrencyConverter.PenniesToString(interactionCostPennies)} ), he will chase you to death..\n" +
+                $"Give alms to {beggar.State.CharacterName}? (Enter 'Yes' or 'No')\n\n");
             var answ = GetUsersAnswer(inputProcessor, outputProcessor);
             if (answ == UserOption.Yes)
             {
                 if (beggar.Interact(user) == InteractionResult.InteractionSuccessful)
                 {
-                    outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("BeggarEventSuccess"),
-                        beggar.State.CharacterName));
+                    outputProcessor.Output($"{beggar.State.CharacterName} got his coins and went away.\n\n");
                     return true;
                 }
 
-                outputProcessor.Output(Resources.Events.ResourceManager.GetString("BeggarEventNotEnoughMoney"));
+                outputProcessor.Output($"{beggar.State.CharacterName} saw you're short on money.\n");
             }
 
-            outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("BeggarEventFail"),
-                        beggar.State.CharacterName));
+            outputProcessor.Output("Beggar and his mates chased you on your way until you found your death...\n\n");
             return false;
         }
     }

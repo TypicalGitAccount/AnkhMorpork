@@ -22,11 +22,11 @@ namespace Ankh_Morpork.Events
             {
                 if (vowel)
                 {
-                    name.Append(vowels[rand.Next(vowels.Length - 1)]);
+                    name.Append(vowels[rand.Next(0, vowels.Length - 1)]);
                 }
                 else
                 {
-                    name.Append(consonants[rand.Next(consonants.Length - 1)]);
+                    name.Append(consonants[rand.Next(0, consonants.Length - 1)]);
                 }
             }
             name[0] = char.ToUpper(name[0]);
@@ -38,32 +38,19 @@ namespace Ankh_Morpork.Events
             return rand.Next(1, (int)PredefinedData.User.StartBalancePennies/2);
         }
 
-        /// <summary>
-        /// To generate npc according to event type
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public virtual GuildCharacter GenerateGuildCharacter() { throw new NotImplementedException(); }
 
-        /// <summary>
-        /// To validate users string input
-        /// </summary>
-        /// <param name="inputProcessor"></param>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public bool ValidUserAnswer(InputProcessor inputProcessor, string input)
+        internal bool ValidUserAnswer(InputProcessor inputProcessor, string input)
         {
             return inputProcessor.ValidInput(input, typeof(string), (val) =>
             {
                 var value = (string)val;
-                return value != null && !string.IsNullOrEmpty(value) && (value == UserOption.Yes.ToString()
+                return !string.IsNullOrEmpty(value) && (value == UserOption.Yes.ToString()
                 || value == UserOption.No.ToString());
             });
         }
 
-        /// <summary>
-        /// Get users answer whether to accept game event
-        /// </summary>
-        public UserOption GetUsersAnswer(InputProcessor inputProcessor, OutputProcessor outputProcessor)
+        internal UserOption GetUsersAnswer(InputProcessor inputProcessor, OutputProcessor outputProcessor)
         {
             var input = inputProcessor.GetInput();
             bool inputAccepted = false;
@@ -72,8 +59,7 @@ namespace Ankh_Morpork.Events
             {
                 if (!ValidUserAnswer(inputProcessor, input))
                 {
-                    outputProcessor.Output(string.Format(Resources.Events.ResourceManager.GetString("UserInputNotValid"), 
-                        UserOption.Yes.ToString(), UserOption.No.ToString()));
+                    outputProcessor.Output($"Input is not valid, please anter '{UserOption.Yes}' or '{UserOption.No}'!\n");
                     input = inputProcessor.GetInput();
                 }
                 else
@@ -88,11 +74,6 @@ namespace Ankh_Morpork.Events
             return UserOption.No;
         }
 
-
-        /// <summary>
-        /// Event entry point
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public virtual bool Run(GameTools.User user, InputProcessor inputProcessor, OutputProcessor outputProcessor)
         { throw new NotImplementedException(); } 
     }

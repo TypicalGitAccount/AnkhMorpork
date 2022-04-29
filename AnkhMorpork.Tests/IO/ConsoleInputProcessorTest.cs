@@ -48,8 +48,6 @@ namespace Ankh_Morpork.Tests.IO
 
         private static IEnumerable<List<object>> ValidateInputWrongInputTestCases()
         {
-            yield return new List<object> { null, typeof(int), null };
-            yield return new List<object> { "", typeof(string), null };
             yield return new List<object> { "1          a2 3", typeof(int), null };
             yield return new List<object> { "        3 ", typeof(int), (Func<object, bool>)((val) =>
                 {

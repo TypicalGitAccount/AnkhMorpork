@@ -4,6 +4,8 @@ using Ankh_Morpork.IO;
 using Ankh_Morpork.PredefinedData;
 using Moq;
 using NUnit.Framework;
+using Ankh_Morpork.GameTools;
+
 
 namespace Ankh_Morpork.Tests.Events
 {
@@ -24,7 +26,7 @@ namespace Ankh_Morpork.Tests.Events
         {
             var testAssasin = new Assasin(rewardMinPennies: 1, rewardMaxPennies: 1000, "testDummy", false);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
-            inputProcessor.AddUserInput(UserOption.Yes.ToString());
+            inputProcessor.AddUserInput("Yes");
             inputProcessor.AddUserInput("5");
 
             var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(), inputProcessor, new ConsoleOutputProcessor());
@@ -37,7 +39,7 @@ namespace Ankh_Morpork.Tests.Events
         {
             var testAssasin = new Assasin(rewardMinPennies: 10, rewardMaxPennies: 1000, "testDummy", false);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
-            inputProcessor.AddUserInput(UserOption.Yes.ToString());
+            inputProcessor.AddUserInput("Yes");
             inputProcessor.AddUserInput("5");
 
             var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(startBalancePennies:1), inputProcessor, new ConsoleOutputProcessor());
@@ -50,8 +52,8 @@ namespace Ankh_Morpork.Tests.Events
         {
             var testAssasin = new Assasin(rewardMinPennies: 10, rewardMaxPennies: 1000, "testDummy", isOccupied: true);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
-            inputProcessor.AddUserInput(UserOption.Yes.ToString());
-            inputProcessor.AddUserInput("5.02");
+            inputProcessor.AddUserInput("Yes");
+            inputProcessor.AddUserInput("5,02");
 
             var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(), inputProcessor, new ConsoleOutputProcessor());
 
@@ -64,7 +66,7 @@ namespace Ankh_Morpork.Tests.Events
             var testAssasin = new Assasin(rewardMinPennies: 1000, rewardMaxPennies: 1000, "testDummy", isOccupied: true);
             mockEvent.Setup(x => x.GenerateGuildCharacter()).Returns(testAssasin);
             inputProcessor.AddUserInput(UserOption.Yes.ToString());
-            inputProcessor.AddUserInput("5.02");
+            inputProcessor.AddUserInput("5,02");
 
             var result = mockEvent.Object.Run(new Ankh_Morpork.GameTools.User(), inputProcessor, new ConsoleOutputProcessor());
 

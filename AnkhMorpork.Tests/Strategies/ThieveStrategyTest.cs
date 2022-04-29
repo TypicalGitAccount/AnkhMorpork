@@ -2,7 +2,6 @@
 using Ankh_Morpork.States;
 using Ankh_Morpork.Strategies;
 using NUnit.Framework;
-using System;
 
 namespace Ankh_Morpork.Tests.Strategies
 {
@@ -14,12 +13,6 @@ namespace Ankh_Morpork.Tests.Strategies
         public void SetUp()
         {
             strategy = new ThieveStrategy();
-        }
-
-        [TestCase(null, null)]
-        public void Interact_NullArgumentsPassed_ThrowsArgumentExcpetion(Ankh_Morpork.GameTools.User user, ThieveState state)
-        {
-            Assert.Throws<ArgumentException>(() => strategy.Interact(user, state));
         }
 
         [Test]
